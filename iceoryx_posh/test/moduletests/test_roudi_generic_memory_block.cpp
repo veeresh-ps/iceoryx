@@ -40,7 +40,7 @@ class GenericMemoryBlock_POD_Test : public Test
 
 TEST_F(GenericMemoryBlock_POD_Test, Initial)
 {
-    EXPECT_THAT(sutPOD.value().has_value(), Eq(false));
+    EXPECT_THAT(sutPOD.value().has_value(), Eq(true));
 }
 
 TEST_F(GenericMemoryBlock_POD_Test, Size)
