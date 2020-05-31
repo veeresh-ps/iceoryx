@@ -7,7 +7,8 @@ gci env: | where name -like '*proxy*'
 cmake --version
 
 Write-Host "Cleaning build folder"
-rm -Recurse -Force .\build
+# TODO optionally clean build folder
+# rm -Recurse -Force .\build
 Write-Host "Staring iceoryx build"
 mkdir -p build
 cmake -Bbuild -Hiceoryx_meta -DTOML_CONFIG=OFF -Dtest=OFF
