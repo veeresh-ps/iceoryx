@@ -27,7 +27,9 @@ jobs:
         uses: actions/checkout@v2
  
       - name: Build
-        run: .\build.ps1
+        run: |
+          cmake -Bbuild -Hiceoryx_meta -DTOML_CONFIG=ON -Dtest=ON
+          cmake --build .\build 
               
 #       - name: Build Tests
 #         run: "./tools/iceoryx_build_test.sh build-test"  
