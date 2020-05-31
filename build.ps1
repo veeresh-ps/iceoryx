@@ -1,4 +1,4 @@
-Write-Host "Staring iceoryx build"
+﻿Write-Host "Staring iceoryx build"
 $Env:Path += ";C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\"
 Write-Host "Displaying path"
 
