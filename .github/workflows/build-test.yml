@@ -26,9 +26,9 @@ jobs:
       - name : Checkout
         uses: actions/checkout@v2
  
-      - name: Build
+      - name: Build Sources
         run: |
-          cmake -Bbuild -Hiceoryx_meta -DTOML_CONFIG=ON -Dtest=ON
+          cmake -Bbuild -Hiceoryx_meta -DTOML_CONFIG=ON -Dtest=OFF
           cmake --build .\build 
               
 #       - name: Build Tests
@@ -39,5 +39,13 @@ jobs:
 #           cd build
 #           ../tools/run_all_tests.sh
        
-
+      - name: Build Tests
+        run: |
+          cmake -Bbuild -Hiceoryx_meta -DTOML_CONFIG=ON -Dtest=ON
+          cmake --build .\build 
+              
+#       - name: Run Tests
+#         run: |
+#           cd build
+#           ../tools/run_all_tests.sh
       
