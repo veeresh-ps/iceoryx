@@ -139,7 +139,7 @@ inline bool SoFi<ValueType, CapacityValue>::popIf(ValueType& valueOut, const Ver
 template <class ValueType, uint32_t CapacityValue>
 bool SoFi<ValueType, CapacityValue>::push(const ValueType& valueOut, ValueType& f_paramOut_r) noexcept
 {
-    constexpr bool SOFI_OVERFLOW = false;
+    constexpr bool SOFI_OVERFLOW{false};
 
     uint64_t currentWritePosition = m_writePosition.load(std::memory_order_relaxed);
     uint64_t nextWritePosition = currentWritePosition + 1U;
