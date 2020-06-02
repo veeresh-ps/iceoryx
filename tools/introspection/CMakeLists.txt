@@ -34,12 +34,14 @@ set(${PROJECT_NAME}_DIR ${CMAKE_CURRENT_LIST_DIR}/cmake
     FORCE
 )
 
+add_compile_options(-std=c++11)
 add_library(iceoryx_introspection
             source/iceoryx_introspection_app.cpp
             source/introspection_app.cpp
     )
 
-set_property(TARGET iceoryx_introspection PROPERTY CXX_STANDARD 11)
+# This setting is not sufficient
+# set_property(TARGET iceoryx_introspection PROPERTY CXX_STANDARD 11)
 
 add_library(${PROJECT_NAMESPACE}::iceoryx_introspection ALIAS iceoryx_introspection)
 
