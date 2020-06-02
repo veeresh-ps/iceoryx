@@ -114,6 +114,20 @@ cd build
 echo " [i] Current working directory:"
 pwd
 
+build_ncurses()
+{
+    echo "Building ncurses"
+    cd $WORKSPACE/build
+    git clone https://github.com/mirror/ncurses.git 
+    cd ncurses
+    git checkout v6.2
+    ./configure  --prefix=$ICEORYX_INSTALL_PREFIX --exec-prefix=$ICEORYX_INSTALL_PREFIX --with-termlib 
+    make
+    make install    
+}
+
+build_ncurses
+
 # Download and build googletest
 if [[ $TEST_FLAG == "on" && $DOWNLOAD_GTEST == true ]]
 then

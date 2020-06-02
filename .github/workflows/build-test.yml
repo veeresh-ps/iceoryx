@@ -58,7 +58,7 @@ jobs:
  
       - name: Build with GNU
         # iceoryx introspection build fails in mac , hence disable for now
-        run: ./tools/iceoryx_build_test.sh skip-introspection
+        run: ./tools/iceoryx_build_test.sh
       
       - name: Build Tests
         run: ./tools/iceoryx_build_test.sh skip-introspection build-test

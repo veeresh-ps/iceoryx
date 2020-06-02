@@ -39,6 +39,8 @@ add_library(iceoryx_introspection
             source/introspection_app.cpp
     )
 
+set_property(TARGET iceoryx_introspection PROPERTY CXX_STANDARD 11)
+
 add_library(${PROJECT_NAMESPACE}::iceoryx_introspection ALIAS iceoryx_introspection)
 
 target_include_directories(iceoryx_introspection
