@@ -116,17 +116,18 @@ pwd
 
 build_ncurses()
 {
-    echo "Building ncurses"
     cd $WORKSPACE/build
-    git clone https://github.com/mirror/ncurses.git 
-    cd ncurses
-    git checkout v6.2
-    ./configure  --prefix=$ICEORYX_INSTALL_PREFIX --exec-prefix=$ICEORYX_INSTALL_PREFIX --with-termlib 
-    # ./configure  --with-termlib 
-    # ./configure  --prefix=/usr/lib/ --exec-prefix=/usr/lib/ --with-termlib 
-
-    make
-    make install    
+    if [ ! -d "ncurses" ]; then
+        echo "Building ncurses"
+        git clone https://github.com/mirror/ncurses.git 
+        cd ncurses
+        git checkout v6.2
+        ./configure  --prefix=$ICEORYX_INSTALL_PREFIX --exec-prefix=$ICEORYX_INSTALL_PREFIX --with-termlib 
+        # ./configure  --with-termlib 
+        # ./configure  --prefix=/usr/lib/ --exec-prefix=/usr/lib/ --with-termlib 
+        make
+        make install    
+    fi
 }
 
 build_ncurses
