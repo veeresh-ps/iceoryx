@@ -59,10 +59,13 @@ target_link_libraries(iceoryx_introspection
     ncurses
 )
 
+find_library(LIB_TINFO tinfo)
+message(STATUS "TINFO path is ${LIB_TINFO}")
+
 # Don't link tinfo under QNX
 if(NOT CMAKE_SYSTEM_NAME MATCHES QNX)
     target_link_libraries(iceoryx_introspection
-        tinfo
+        LIB_TINFO
     )
 endif()
 

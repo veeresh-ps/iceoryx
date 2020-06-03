@@ -121,9 +121,9 @@ build_ncurses()
     git clone https://github.com/mirror/ncurses.git 
     cd ncurses
     git checkout v6.2
-    #./configure  --prefix=$ICEORYX_INSTALL_PREFIX --exec-prefix=$ICEORYX_INSTALL_PREFIX --with-termlib 
-    #./configure  --with-termlib 
-    ./configure  --prefix=/usr/lib/ --exec-prefix=/usr/lib/ --with-termlib 
+    ./configure  --prefix=$ICEORYX_INSTALL_PREFIX --exec-prefix=$ICEORYX_INSTALL_PREFIX --with-termlib 
+    # ./configure  --with-termlib 
+    # ./configure  --prefix=/usr/lib/ --exec-prefix=/usr/lib/ --with-termlib 
 
     make
     make install    
