@@ -63,11 +63,13 @@ find_library(LIB_TINFO tinfo)
 message(STATUS "TINFO path is ${LIB_TINFO}")
 
 # Don't link tinfo under QNX
+if(FALSE)
 if(NOT CMAKE_SYSTEM_NAME MATCHES QNX)
     target_link_libraries(iceoryx_introspection
         LIB_TINFO
     )
 endif()
+endif(FALSE)
 
 set_target_properties(iceoryx_introspection
     PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}"
