@@ -130,7 +130,7 @@ build_ncurses()
     fi
 }
 
-build_ncurses
+# build_ncurses
 
 # Download and build googletest
 if [[ $TEST_FLAG == "on" && $DOWNLOAD_GTEST == true ]]

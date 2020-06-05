@@ -65,16 +65,16 @@ jobs:
           make
           make install                  
  
-#       - name: Build with GNU
-#         # iceoryx introspection build fails in mac , hence disable for now
-#         run: ./tools/iceoryx_build_test.sh
+      - name: Build with GNU
+        # iceoryx introspection build fails in mac , hence disable for now
+        run: ./tools/iceoryx_build_test.sh
       
-#       - name: Build Tests
-#         run: ./tools/iceoryx_build_test.sh skip-introspection build-test
+      - name: Build Tests
+        run: ./tools/iceoryx_build_test.sh build-test
 
-#       - name: Run Tests
-#         run: |
-#           cd build
-#           ../tools/run_mac_tests.sh        
+      # - name: Run Tests
+      #   run: |
+      #     cd build
+      #     ../tools/run_mac_tests.sh        
 
       
