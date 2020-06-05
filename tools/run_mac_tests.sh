@@ -23,11 +23,33 @@ component_folder="posh utils"
 # scripts definitions
 [[ "${#BASH_SOURCE[@]}" -gt "1" ]] && { return 0; }
 
-if [ -z "$TEST_RESULT_FOLDER" ]
-then
-    TEST_RESULT_FOLDER="$(pwd)/testresults"
-fi
 
+set_variables()
+{
+    # Determine workspace
+    if [ -z $WORKSPACE ]; then 
+        WORKSPACE=$(git rev-parse --show-toplevel)
+    fi
+
+    if [ -z "$TEST_RESULT_FOLDER" ]; then
+        TEST_RESULT_FOLDER="$WORKSPACE/build/testresults"
+    fi
+
+}
+
+print_variables()
+{
+    echo "TEST_RESULT_FOLDER is $TEST_RESULT_FOLDER"
+    echo "WORKSPACE is $WORKSPACE"
+    echo ""
+}
+
+set_variables
+print_variables
+
+
+# Step into build folder
+cd $WORKSPACE/build
 mkdir -p "$TEST_RESULT_FOLDER"
 
 echo ">>>>>> Running Ice0ryx Tests <<<<<<"
@@ -35,17 +57,31 @@ echo ">>>>>> Running Ice0ryx Tests <<<<<<"
 # Continue on error
 # set -e
 
+run_test()
+{
+    component=$1
+    test=$2
+    test_to_run=$component"_"$test
+    echo ""
+    echo ">>>>>> Running $test_to_run <<<<<<"
+    ./$test_to_run --gtest_output="xml:$TEST_RESULT_FOLDER/"$test_to_run"_results.xml"
+    echo ">>>>>> Finished running $test_to_run <<<<<<"    
+}
+
+# run_test $WORKSPACE
+
+# exit 1
 
 for folder in $component_folder; do
     echo ""
-    echo "######################## processing moduletests & componenttests in $folder ########################"
+    echo "######################## processing tests in $folder ########################"
     echo $PWD
 
     cd $folder/$folder/test
 
-    ./"$folder"_moduletests --gtest_output="xml:$TEST_RESULT_FOLDER/"$folder"_ModuleTestResults.xml"        
-    ./"$folder"_integrationtests --gtest_output="xml:$TEST_RESULT_FOLDER/"$folder"_IntegrationTestResults.xml"        
-    ./"$folder"_componenttests --gtest_output="xml:$TEST_RESULT_FOLDER/"$folder"_ComponenttestTestResults.xml"    
+    run_test $folder "moduletests"
+    run_test $folder "integrationtests"
+    run_test $folder "componenttests"
 
     # if [[ $folder == "posh" ]]
     # then
@@ -65,7 +101,6 @@ for folder in $component_folder; do
     #     ./"$folder"_componenttests --gtest_output="xml:$TEST_RESULT_FOLDER/"$folder"_ComponenttestTestResults.xml"
     # fi    
     cd ../../..
-
 done
 
 # do not start RouDi while the module and componenttests are running;
