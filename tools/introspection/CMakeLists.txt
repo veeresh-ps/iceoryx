@@ -60,8 +60,13 @@ target_link_libraries(iceoryx_introspection
 )
 
 
-message(STATUS "Running on ${CMAKE_SYSTEM_NAME}")
-message(STATUS "Running on CMAKE_SYSTEM_NAME")
+
+# Find tinfo library for APPLE, for other platforms its probably part of package Curses
+if(CMAKE_SYSTEM_NAME MATCHES Darwin)
+find_library(LIB_TINFO tinfo)
+else()
+set(LIB_TINFO tinfo)
+endif(CMAKE_SYSTEM_NAME MATCHES Darwin)
 
 # Don't link tinfo under QNX
 if(NOT CMAKE_SYSTEM_NAME MATCHES QNX)
