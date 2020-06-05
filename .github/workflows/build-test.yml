@@ -61,7 +61,6 @@ jobs:
           git clone https://github.com/mirror/ncurses.git 
           cd ncurses
           git checkout v6.2          
-          ../tools/run_mac_tests.sh
           ./configure  --prefix=$GITHUB_WORKSPACE/build/install/prefix/ --exec-prefix=$GITHUB_WORKSPACE/build/install/prefix/ --with-termlib 
           make
           make install                  
