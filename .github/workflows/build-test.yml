@@ -29,7 +29,7 @@ jobs:
       - name: Build Sources
         run: |
           cmake -Bbuild -Hiceoryx_meta -DTOML_CONFIG=ON -Dtest=OFF
-          cmake --build .\build 
+          cmake --build ./build 
               
 #       - name: Build Tests
 #         run: "./tools/iceoryx_build_test.sh build-test"  
@@ -42,7 +42,7 @@ jobs:
       - name: Build Tests
         run: |
           cmake -Bbuild -Hiceoryx_meta -DTOML_CONFIG=ON -Dtest=ON
-          cmake --build .\build 
+          cmake --build ./build 
               
 #       - name: Run Tests
 #         run: |
