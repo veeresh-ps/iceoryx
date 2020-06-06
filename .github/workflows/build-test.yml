@@ -26,6 +26,19 @@ jobs:
       - name : Checkout
         uses: actions/checkout@v2
  
+      - name: Build ncurses by source
+      # tinfo library which is required by iceoryx_introspection isn't available in mac
+        run: |
+          cd $GITHUB_WORKSPACE
+          mkdir -p build
+          cd build
+          git clone https://github.com/mirror/ncurses.git 
+          cd ncurses
+          git checkout v6.2          
+          ./configure --with-termlib 
+          make
+          make install 
+
       - name: Build Sources
         run: |
           cmake -Bbuild -Hiceoryx_meta -DTOML_CONFIG=ON -Dtest=OFF
