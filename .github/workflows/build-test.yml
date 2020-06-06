@@ -78,3 +78,25 @@ jobs:
       #     cd $GITHUB_WORKSPACE/build
       #     ../tools/run_all_tests.sh
 
+  # This job builds iceoryx sources & tests in windows-2019
+  build-test-windows:
+    # The type of runner that the job will run on
+    runs-on: windows-2019
+    # Softwares installed in windows-2019 instance
+    # https://github.com/actions/virtual-environments/blob/master/images/win/Windows2019-Readme.md
+      
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+ 
+      - name: Build sources
+        run: |
+          cmake -Bbuild -Hiceoryx_meta -DTOML_CONFIG=ON -Dtest=OFF
+          cmake --build ./build 
+       
+      - name: Build tests
+        run: |
+          cmake -Bbuild -Hiceoryx_meta -DTOML_CONFIG=ON -Dtest=ON
+          cmake --build ./build 
+             
