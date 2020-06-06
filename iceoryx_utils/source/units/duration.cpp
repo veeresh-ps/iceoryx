@@ -47,7 +47,7 @@ struct timespec Duration::timespec(const TimeSpecReference& reference) const
             int64_t seconds = this->seconds<int64_t>() + referenceTime.tv_sec + sumOfNanoSeconds / NanoSecondsPerSecond;
             int64_t nanoSeconds = sumOfNanoSeconds % NanoSecondsPerSecond;
 
-            return {seconds, nanoSeconds};
+            return {seconds, static_cast<int32_t>(nanoSeconds)};
         }
     }
 }
