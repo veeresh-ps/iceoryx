@@ -40,6 +40,8 @@ class MemoryProviderTestImpl : public iox::roudi::MemoryProvider
 
 #if defined(QNX) || defined(QNX__) || defined(__QNX__)
         dummyMemory = static_cast<uint8_t*>(memalign(alignment, size));
+#elif defined(_WIN32)
+        dummyMemory = static_cast<uint8_t*>(_aligned_malloc(alignment, size));
 #else
         dummyMemory = static_cast<uint8_t*>(aligned_alloc(alignment, size));
 #endif
