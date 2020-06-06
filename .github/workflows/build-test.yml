@@ -5,7 +5,7 @@ name: Build & Test
 # Triggers the workflow on push or pull request events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [ master, u-test-* ]
   pull_request:
     branches: [ master ]
 
@@ -43,8 +43,8 @@ jobs:
       - name: Execute Tests
         run: "./tools/iceoryx_build_test.sh test"  
         
-      - name : Build with clang
-        run: |
-          export CC=/usr/bin/clang
-          export CXX=/usr/bin/clang++
-          ./tools/iceoryx_build_test.sh clean
+      # - name : Build with clang
+      #   run: |
+      #     export CC=/usr/bin/clang
+      #     export CXX=/usr/bin/clang++
+      #     ./tools/iceoryx_build_test.sh clean
