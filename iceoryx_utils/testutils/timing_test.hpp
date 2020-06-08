@@ -133,7 +133,7 @@ inline std::string verifyTimingTestResult(const char* file,
     {
         errorMessage += "Timing Test failure in:\n";
         errorMessage += std::string(file) + ":" + std::to_string(line) + "\n";
-        errorMessage += "Value of: " + std::string(valueStr) + " should be true\n";
+        errorMessage += "Value of: " + std::string(valueStr) + " should be " + (expected ? "true" : "false") + "\n";
         result.store(false);
     }
     return errorMessage;

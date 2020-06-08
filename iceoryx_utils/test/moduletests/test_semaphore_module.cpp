@@ -328,14 +328,65 @@ TIMING_TEST_P(Semaphore_test, TimedWaitWithoutTimeout, Repeat(3), [&] {
         clock_gettime(CLOCK_REALTIME, &ts);
         ts.tv_nsec += TIMING_TEST_TIMEOUT;
         syncSemaphore->post();
+        // Seq-5 : second iteration, this step doesnt wait , as there is post from the previous iteration
         sut->wait();
+        // Seq-2 : sut times out hence step fails
+        // Seq-7 : due to post from Seq-6 , this doesnt wait (actually supposed to wait)
         TIMING_TEST_EXPECT_TRUE(sut->timedWait(&ts, false));
         timedWaitFinish.store(true);
     });
 
     syncSemaphore->wait();
+    // Seq-6 : post "sut" from the second iteration
+    sut->post();
+    // Seq-1 : Probably this sleep takes more time on Jenkins (more than TIMING_TEST_TIMEOUT)
+    // Simulate this by increasing the sleep
+    std::this_thread::sleep_for(std::chrono::nanoseconds(TIMING_TEST_TIMEOUT * 2));
+    // Seq-3 : Thread "t" finished, this step fails
+    // Seq-8 : Thread "t" dint wait and finsihed quickly, hence this step fails
+    // If this step fails, this should be accompanied by failing step in the thread "t", because we havent posted on sut
+    // yet!
+    TIMING_TEST_EXPECT_FALSE(timedWaitFinish.load());
+
+    // Seq-4 : post increments "sut", but no one to consume this (This cascades to next iteration)
     sut->post();
     std::this_thread::sleep_for(std::chrono::nanoseconds(TIMING_TEST_TIMEOUT / 3 * 2));
+    TIMING_TEST_EXPECT_TRUE(timedWaitFinish.load());
+
+    t.join();
+});
+
+
+TIMING_TEST_P(Semaphore_test, TimedWaitWithoutTimeoutFix1, Repeat(3), [&] {
+    std::atomic_bool timedWaitFinish{false};
+    bool isTestSuccessful{true};
+
+    std::thread t([&] {
+        struct timespec ts;
+        clock_gettime(CLOCK_REALTIME, &ts);
+        ts.tv_nsec += TIMING_TEST_TIMEOUT;
+        syncSemaphore->post();
+        int semValue;
+        // Consume post's from previous iteration...
+        /// @todo : It can be better done at the end of the iteration
+        do
+        {
+            sut->wait();
+            std::this_thread::sleep_for(std::chrono::nanoseconds(10000));
+            sut->getValue(semValue);
+            std::cout << "semValue is " << semValue << "\n";
+        } while (semValue > 0);
+
+        bool result = sut->timedWait(&ts, true);
+        std::cout << "Result of sut->timedWait is " << (result ? "true" : "false") << std::endl;
+        TIMING_TEST_EXPECT_TRUE(result);
+        timedWaitFinish.store(true);
+    });
+
+    syncSemaphore->wait();
+    sut->post();
+    // std::this_thread::sleep_for(std::chrono::nanoseconds(TIMING_TEST_TIMEOUT / 3 * 2));
+    std::this_thread::sleep_for(std::chrono::nanoseconds(TIMING_TEST_TIMEOUT * 2));
     TIMING_TEST_EXPECT_FALSE(timedWaitFinish.load());
 
     sut->post();
