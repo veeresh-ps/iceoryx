@@ -201,6 +201,12 @@ then
     cd iceperf
     cmake -DCMAKE_PREFIX_PATH=$ICEORYX_INSTALL_PREFIX -DCMAKE_INSTALL_PREFIX=$ICEORYX_INSTALL_PREFIX $WORKSPACE/iceoryx_examples/iceperf
     cmake --build . --target install -- -j$NUM_JOBS
+    echo ">>>>>>>> perftest"
+    cd $BUILD_DIR/iceoryx_examples
+    mkdir -p perftest
+    cd perftest
+    cmake -DCMAKE_PREFIX_PATH=$ICEORYX_INSTALL_PREFIX -DCMAKE_INSTALL_PREFIX=$ICEORYX_INSTALL_PREFIX $WORKSPACE/iceoryx_examples/perftest
+    cmake --build . --target install -- -j$NUM_JOBS    
     echo ">>>>>> Finished building iceoryx examples <<<<<<"
 else
     $WORKSPACE/tools/gcov/lcov_generate.sh $WORKSPACE initial #make an initial scan to cover also files with no coverage
