@@ -79,15 +79,15 @@ int main(int argc, char* argv[])
         }
     }
 
-    INFO_PRINTF("****** UDP - Loopback ********");
-    perftest::udp::UDPClient udp_loopback(data.ip, data.port);
-    clientLoop(udp_loopback, data.numRoundtrips);
+    //INFO_PRINTF("****** UDP - Loopback ********");
+    //perftest::udp::UDPClient udp_loopback(data.ip, data.port);
+    //clientLoop(udp_loopback, data.numRoundtrips);
 
     INFO_PRINTF("*********************************");
     INFO_PRINTF("****** UDP - interdomain ********");
-    data.ip = "192.168.111.21";
-    // perftest::udp::UDPClient udp_interdomain(data.ip, data.port);
-    // clientLoop(udp_interdomain, data.numRoundtrips);
+    data.ip = "10.0.2.5";
+    perftest::udp::UDPClient udp_interdomain(data.ip, data.port);
+    clientLoop(udp_interdomain, data.numRoundtrips);
 
 
     // ara-com methods (IPC)

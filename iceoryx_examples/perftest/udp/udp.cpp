@@ -21,6 +21,10 @@ namespace udp
 {
 ssize_t UDPCommon::receive(char* buffer, struct sockaddr_in* sourceAddress, socklen_t* sourceAddressLength) noexcept
 {
+    struct timeval tv;
+    tv.tv_sec = 5;
+    tv.tv_usec = 0;
+    setsockopt(m_socket, SOL_SOCKET, SO_RCVTIMEO, (const char*)&tv, sizeof tv);
     // @@todo Implement some kind of timeout, if server is not responding
     auto recvCall = iox::cxx::makeSmartC(recvfrom,
                                          iox::cxx::ReturnMode::PRE_DEFINED_ERROR_CODE,
