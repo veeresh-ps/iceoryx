@@ -1,0 +1,13 @@
+#!/usr/bin/expect -f
+
+#Usage sshsudologin.expect <host> <ssh user> <ssh password>
+
+set timeout 120
+
+spawn ssh [lindex $argv 1]@[lindex $argv 0]
+
+expect "* " { send "[lindex $argv 2]\r" }
+
+expect -exact "$ " { send "sh ./perf-client.sh \r" }
+
+interact

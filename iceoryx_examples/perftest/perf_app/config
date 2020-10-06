@@ -1,0 +1,199 @@
+[global_config]
+  sticky = True
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = feece043-88a1-4de9-82c6-bd18950f9c46
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 67:27
+      size = 1853, 895
+      title = vhe3kor@BANI-C-0003MVM: ~/.config/terminator
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 635
+      ratio = 0.713483146067
+      type = VPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 306
+      ratio = 0.485714285714
+      type = VPaned
+    [[[child4]]]
+      order = 1
+      parent = child2
+      position = 926
+      ratio = 0.501082251082
+      type = HPaned
+    [[[child7]]]
+      order = 1
+      parent = child1
+      position = 858
+      ratio = 0.464285714286
+      type = HPaned
+    [[[terminal3]]]
+      command = cd;./server.sh; bash
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = feece043-88a1-4de9-82c6-bd18950f9c46
+    [[[terminal5]]]
+      command = cd;sleep 1;./client.sh; bash
+      order = 0
+      parent = child4
+      profile = default
+      type = Terminal
+      uuid = ce1279ef-94c5-4b63-bcee-9296fe9aa303
+    [[[terminal6]]]
+      order = 1
+      parent = child4
+      profile = default
+      type = Terminal
+      uuid = 5262abb7-556a-43f6-a084-635fdc4386a1
+    [[[terminal8]]]
+      order = 0
+      parent = child7
+      profile = default
+      type = Terminal
+      uuid = 9854b4b0-af8b-4684-98e5-26caf5d9e431
+    [[[terminal9]]]
+      order = 1
+      parent = child7
+      profile = default
+      type = Terminal
+      uuid = a8a7a514-aa7f-4c97-8f53-d7aea0773629
+  [[perf_app]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 02a71535-1c9e-40fc-b35e-f738a2488827
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 67:27
+      size = 1853, 895
+      title = vhe3kor@BANI-C-0003MVM: ~/.config/terminator
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 924
+      ratio = 0.5
+      type = HPaned
+    [[[terminal2]]]
+      command = cd ;./perf_app/remote_server.sh; bash
+      order = 0
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = feece043-88a1-4de9-82c6-bd18950f9c46
+    [[[terminal3]]]
+      command = sleep 1;cd ;./perf_app/remote_client.sh; bash
+      order = 1
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = 02a71535-1c9e-40fc-b35e-f738a2488827
+  [[ssh]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = feece043-88a1-4de9-82c6-bd18950f9c46
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 67:27
+      size = 1373, 845
+      title = vhe3kor@BANI-C-0003MVM: ~/.config/terminator
+      type = Window
+    [[[terminal1]]]
+      command = cd;./ssh.sh; bash
+      order = 0
+      parent = child0
+      profile = default
+      type = Terminal
+      uuid = feece043-88a1-4de9-82c6-bd18950f9c46
+  [[test]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = feece043-88a1-4de9-82c6-bd18950f9c46
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 67:27
+      size = 1853, 895
+      title = vhe3kor@BANI-C-0003MVM: ~/.config/terminator
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 635
+      ratio = 0.713483146067
+      type = VPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 306
+      ratio = 0.485714285714
+      type = VPaned
+    [[[child4]]]
+      order = 1
+      parent = child2
+      position = 926
+      ratio = 0.501082251082
+      type = HPaned
+    [[[child7]]]
+      order = 1
+      parent = child1
+      position = 858
+      ratio = 0.464285714286
+      type = HPaned
+    [[[terminal3]]]
+      command = cd /home/vhe3kor/Veeresh_Dev/iceoryx/build;./iox-roudi; bash
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = feece043-88a1-4de9-82c6-bd18950f9c46
+    [[[terminal5]]]
+      command = sleep 1;cd /home/vhe3kor/Veeresh_Dev/iceoryx/build/iceoryx_examples/icedelivery;./iox-ex-publisher-bare-metal; bash
+      order = 0
+      parent = child4
+      profile = default
+      type = Terminal
+      uuid = ce1279ef-94c5-4b63-bcee-9296fe9aa303
+    [[[terminal6]]]
+      command = sleep1;cd /home/vhe3kor/Veeresh_Dev/iceoryx/build/iceoryx_examples/icedelivery;./iox-ex-publisher-simple; bash
+      order = 1
+      parent = child4
+      profile = default
+      type = Terminal
+      uuid = 5262abb7-556a-43f6-a084-635fdc4386a1
+    [[[terminal8]]]
+      command = sleep 1;cd /home/vhe3kor/Veeresh_Dev/iceoryx/build/iceoryx_examples/icedelivery;./iox-ex-subscriber-bare-metal; bash
+      order = 0
+      parent = child7
+      profile = default
+      type = Terminal
+      uuid = 9854b4b0-af8b-4684-98e5-26caf5d9e431
+    [[[terminal9]]]
+      command = sleep 1;cd /home/vhe3kor/Veeresh_Dev/iceoryx/build/iceoryx_examples/icedelivery;./iox-ex-subscriber-simple bash
+      order = 1
+      parent = child7
+      profile = default
+      type = Terminal
+      uuid = a8a7a514-aa7f-4c97-8f53-d7aea0773629
+[plugins]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    scrollback_infinite = True
