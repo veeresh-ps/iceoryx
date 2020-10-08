@@ -1,0 +1,35 @@
+{
+    "title" : "Lets see how the com channels fare!",
+    // Capture what is for all the protocols
+    "set-up" : 
+    {
+        // execution environment (manual entry / possible entry by the program ??)
+        "environment" : "VCU-P/VM Ware",
+        // Number of roundtrips
+        "roundtrips" : 1000,
+        "unit_latency" : "µs",
+        "unit_payload" : "bytes"
+    },
+    "protocols" : 
+    [
+        // One entry per protocol 
+        // Options are udp_intradomain/udp_interdomain/ara_com_intradomain/ara_com_interdomain/
+        {
+            "protocol" : "udp_intradomain",
+            "entry"    :
+            [
+                // One entry per payload
+                {
+                    // Payload size (unit as mentioned in unit_payload)
+                    "payload" : 8,
+                    // Latency (unit as specified in unit_latency, two point precision)
+                    "latency" : 10.23
+                },
+                {
+                    "payload" : 16,
+                    "latency" : 20
+                }
+            ]
+        }
+    ]
+}
