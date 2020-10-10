@@ -1,33 +1,237 @@
 {
-    "title" : "Lets see how the com channels fare!",
-    // Capture what is for all the protocols
-    "set-up" : 
-    {
-        // execution environment (manual entry / possible entry by the program ??)
-        "environment" : "VCU-P/VM Ware",
-        // Number of roundtrips
-        "roundtrips" : 1000,
-        "unit_latency" : "µs",
-        "unit_payload" : "bytes"
+    "title": "Lets see how the com channels fare!",
+    "set-up": {
+        "environment": "VCU-P/VM Ware",
+        "roundtrips": 1000,
+        "unit_latency": "µs",
+        "unit_payload": "bytes"
     },
-    "protocols" : 
-    [
-        // One entry per protocol 
-        // Options are udp_intradomain/udp_interdomain/ara_com_intradomain/ara_com_interdomain/
+    "protocols": [
         {
-            "protocol" : "udp_intradomain",
-            "entry"    :
-            [
-                // One entry per payload
+            "protocol": "udp_intradomain",
+            "entry": [
                 {
-                    // Payload size (unit as mentioned in unit_payload)
-                    "payload" : 8,
-                    // Latency (unit as specified in unit_latency, two point precision)
-                    "latency" : 10.23
+                    "payload": 1024,
+                    "latency": 7.10
                 },
                 {
-                    "payload" : 16,
-                    "latency" : 20
+                    "payload": 2048,
+                    "latency": 7.4
+                },
+                {
+                    "payload": 4096,
+                    "latency": 8.70
+                },
+                {
+                    "payload": 8192,
+                    "latency": 11.00
+                },
+                {
+                    "payload": 16384,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 32768,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 65536,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 131072,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 262144,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 524288,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 1048576,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 2097152,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 4194304,
+                    "latency": 0.00
+                }
+            ]
+        },
+        {
+            "protocol": "aracom_method_intradomain",
+            "entry": [
+                {
+                    "payload": 1024,
+                    "latency": 210.00
+                },
+                {
+                    "payload": 2048,
+                    "latency": 240.00
+                },
+                {
+                    "payload": 4096,
+                    "latency": 300.00
+                },
+                {
+                    "payload": 8192,
+                    "latency": 430.00
+                },
+                {
+                    "payload": 16384,
+                    "latency": 860.00
+                },
+                {
+                    "payload": 32768,
+                    "latency": 3500.00
+                },
+                {
+                    "payload": 65536,
+                    "latency": 5500.00
+                },
+                {
+                    "payload": 131072,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 262144,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 524288,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 1048576,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 2097152,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 4194304,
+                    "latency": 0.00
+                }
+            ]
+        },
+        {
+            "protocol": "udp_interdomain",
+            "entry": [
+                {
+                    "payload": 1024,
+                    "latency": 110
+                },
+                {
+                    "payload": 2048,
+                    "latency": 130
+                },
+                {
+                    "payload": 4096,
+                    "latency": 200
+                },
+                {
+                    "payload": 8192,
+                    "latency": 350
+                },
+                {
+                    "payload": 16384,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 32768,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 65536,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 131072,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 262144,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 524288,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 1048576,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 2097152,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 4194304,
+                    "latency": 0.00
+                }
+            ]
+        },
+        {
+            "protocol": "udp_interdomain",
+            "entry": [
+                {
+                    "payload": 1024,
+                    "latency": 510
+                },
+                {
+                    "payload": 2048,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 4096,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 8192,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 16384,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 32768,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 65536,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 131072,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 262144,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 524288,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 1048576,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 2097152,
+                    "latency": 0.00
+                },
+                {
+                    "payload": 4194304,
+                    "latency": 0.00
                 }
             ]
         }
