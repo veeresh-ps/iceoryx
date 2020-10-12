@@ -1,0 +1,27 @@
+{
+    "title": "Lets see how the com channels fare!",
+    "set-up": {
+        "environment": "VCU-P/VM Ware",
+        "roundtrips": 1000,
+        "unit_latency": "µs",
+        "unit_payload": "bytes"
+    },
+    "protocols": [
+        {
+            "protocol": "udp_intradomain",
+            "entry": [{"payload": "8", "latency": "64.9004"}, {"payload": "16", "latency": "66.3809"}, {"payload": "32", "latency": "65.4727"}, {"payload": "64", "latency": "65.127"}, {"payload": "128", "latency": "69.661"}, {"payload": "256", "latency": "79.6105"}, {"payload": "512", "latency": "85.0733"}, {"payload": "1024", "latency": "88.4465"}, {"payload": "2048", "latency": "92.5738"}, {"payload": "4096", "latency": "110.757"}, {"payload": "8192", "latency": "121.208"}, {"payload": "16384", "latency": "0"}, {"payload": "32768", "latency": "0"}, {"payload": "65536", "latency": "0"}, {"payload": "131072", "latency": "0"}, {"payload": "262144", "latency": "0"}, {"payload": "524288", "latency": "0"}, {"payload": "1048576", "latency": "0"}, {"payload": "2097152", "latency": "0"}, {"payload": "4194304", "latency": "0"}]
+        },
+        {
+            "protocol": "aracom_method_intradomain",
+            "entry": [{"payload": "8", "latency": "1590.17"}, {"payload": "16", "latency": "806.165"}, {"payload": "32", "latency": "1576.86"}, {"payload": "64", "latency": "863.136"}, {"payload": "128", "latency": "1666.08"}, {"payload": "256", "latency": "956.343"}, {"payload": "512", "latency": "1773.21"}, {"payload": "1024", "latency": "1153"}, {"payload": "2048", "latency": "2176.06"}, {"payload": "4096", "latency": "2709.96"}, {"payload": "8192", "latency": "4412.69"}, {"payload": "16384", "latency": "7328.32"}, {"payload": "32768", "latency": "15920.6"}, {"payload": "65536", "latency": "31229.2"}, {"payload": "131072", "latency": "0"}, {"payload": "262144", "latency": "0"}, {"payload": "524288", "latency": "0"}, {"payload": "1048576", "latency": "0"}, {"payload": "2097152", "latency": "0"}, {"payload": "4194304", "latency": "0"}]
+        },
+        {
+            "protocol": "udp_interdomain",
+            "entry": [{"payload": "8", "latency": "2547.91"}, {"payload": "16", "latency": "1017.97"}, {"payload": "32", "latency": "1784.94"}, {"payload": "64", "latency": "1022.35"}, {"payload": "128", "latency": "1783.49"}, {"payload": "256", "latency": "1020.47"}, {"payload": "512", "latency": "1781.49"}, {"payload": "1024", "latency": "1787.47"}, {"payload": "2048", "latency": "1149.49"}, {"payload": "4096", "latency": "2021.96"}, {"payload": "8192", "latency": "2116.05"}, {"payload": "16384", "latency": "0"}, {"payload": "32768", "latency": "0"}, {"payload": "65536", "latency": "0"}, {"payload": "131072", "latency": "0"}, {"payload": "262144", "latency": "0"}, {"payload": "524288", "latency": "0"}, {"payload": "1048576", "latency": "0"}, {"payload": "2097152", "latency": "0"}, {"payload": "4194304", "latency": "0"}]
+        },
+        {
+            "protocol": "aracom_method__interdomain",
+            "entry": [{"payload": "8", "latency": "3917.35"}, {"payload": "16", "latency": "3910"}, {"payload": "32", "latency": "3125.98"}, {"payload": "64", "latency": "3083.49"}, {"payload": "128", "latency": "4079.99"}, {"payload": "256", "latency": "3448.01"}, {"payload": "512", "latency": "4323.04"}, {"payload": "1024", "latency": "4481.52"}, {"payload": "2048", "latency": "0"}, {"payload": "4096", "latency": "0"}, {"payload": "8192", "latency": "0"}, {"payload": "16384", "latency": "0"}, {"payload": "32768", "latency": "0"}, {"payload": "65536", "latency": "0"}, {"payload": "131072", "latency": "0"}, {"payload": "262144", "latency": "0"}, {"payload": "524288", "latency": "0"}, {"payload": "1048576", "latency": "0"}, {"payload": "2097152", "latency": "0"}, {"payload": "4194304", "latency": "0"}]
+        }
+    ]
+}
