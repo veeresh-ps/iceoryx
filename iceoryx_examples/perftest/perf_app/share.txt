@@ -5,3 +5,5 @@ https://medium.com/python-pandemonium/never-write-for-loops-again-91a5a4c84baf
 https://bosch.sharepoint.com/sites/msteams_7220087/Shared%20Documents/ComPerformanceTesting/02_PerformanceTests/Results/VCU-P_Hardware_results/12_10_2020/vcu-p_com_perf_test_results.zip
 
 https://teams.microsoft.com/_#/files/ComPerformanceTesting?threadId=19%3A472e80557f1048ff9a9d1592251cf524%40thread.tacv2&ctx=channel&context=temp&rootfolder=%252Fsites%252Fmsteams_7220087%252FShared%2520Documents%252FComPerformanceTesting%252Ftemp
+
+https://inside-docupedia.bosch.com/confluence/display/HAD/CNTLM
